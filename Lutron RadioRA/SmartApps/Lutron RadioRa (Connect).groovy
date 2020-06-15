@@ -319,13 +319,13 @@ def on(childDevice, transition_deprecated = 0) {
     log.debug "Device Level: " + percent
     
     def childDeviceNetworkId = childDevice.device.deviceNetworkId
-    if (percent == 0) {
+    if (percent) {
+		sendCmd('SDL',childDeviceNetworkId.split(/\./).last(), percent)
+        sendEvent(childDeviceNetworkId, [name: "switch", value: "on"])
+    } else {
     	sendCmd('SDL', childDeviceNetworkId.split(/\./).last(), 100)
     	sendEvent(childDeviceNetworkId, [name: "switch", value: "on"])
         sendEvent(childDeviceNetworkId, [name: "level", value: "100"])
-    } else {
-    	sendCmd('SDL',childDeviceNetworkId.split(/\./).last(), percent)
-        sendEvent(childDeviceNetworkId, [name: "switch", value: "on"])
     }
 }
 
