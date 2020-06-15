@@ -202,9 +202,9 @@ def initialize() {
 
 	// Automatically update zone devices status based on the setting for polling
     log.debug "Polling interval: ${polling}"
-    switch(polling) {
+    switch((polling as Integer)) {
     	case 1:
-        	runEvery1Minutes("pollZones")
+        	runEvery1Minute("pollZones")
             break
     	case 5:
         	runEvery5Minutes("pollZones")
