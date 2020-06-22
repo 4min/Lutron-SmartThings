@@ -238,10 +238,10 @@ def createZoneDevices() {
                 device = addChildDevice(app.namespace, "Lutron Grafik Eye Scene", dni, null, ["label":"${atomicState.zones[dni].name}" ?: "Lutron Grafik Eye Scene"])
                	log.debug "Created ${device.displayName} with id $dni as a RadioRA Grafik Eye scene"
             } else if (zoneTypeid == 2) {
-            	device = addChildDevice(app.namespace, "RadioRA Classic Dimmer", dni, null, ["label":"${atomicState.zones[dni].name}" ?: "Lutron Dimmer"])
+            	device = addChildDevice(app.namespace, "Lutron RadioRA Dimmer", dni, null, ["label":"${atomicState.zones[dni].name}" ?: "Lutron Dimmer"])
                 log.debug "Created ${device.displayName} with id $dni as a RadioRA Classic dimmer"
             } else {
-            	device = addChildDevice(app.namespace, "RadioRA Classic Switch", dni, null, ["label":"${atomicState.zones[dni].name}" ?: "Lutron switch"])   	
+            	device = addChildDevice(app.namespace, "Lutron RadioRA Switch", dni, null, ["label":"${atomicState.zones[dni].name}" ?: "Lutron Switch"])   	
                 log.debug "Created ${device.displayName} with id $dni as a RadioRA Classic switch"
 			}
         } else {
