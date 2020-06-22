@@ -70,7 +70,7 @@ def preferenceLutronValidation() {
     log.info 'Entered Method: preferenceLutronValidation()'
 
     // config settings for network time out on callback response
-    def int timeoutinMilliSeconds = bridgeTimeout * 1000 // seconds * milliseconds
+    def int timeoutinMilliSeconds = bridgeTimeout.toInteger() * 1000 // seconds * milliseconds
     def int maxTimeout = now() + timeoutinMilliSeconds
 
     getZones()
@@ -197,7 +197,7 @@ def initialize() {
 
     // Automatically update zone devices status based on the setting for polling
     log.debug "Polling interval: ${polling}"
-    switch (polling as Integer) {
+    switch (polling.toInteger()) {
         case 1:
             runEvery1Minute('pollZones')
             break
